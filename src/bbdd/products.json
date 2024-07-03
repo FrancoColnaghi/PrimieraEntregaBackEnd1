@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1719854152313,
+      "description": "pc Intel i9 8gb",
+      "title": "Notebook",
+      "code": "asdasd",
+      "price": 800,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013269172,
+      "description": "pc intel i5 8gb",
+      "title": "Netbook",
+      "code": "asdasd",
+      "price": 700,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013285486,
+      "description": "pc ryzen 3 8gb",
+      "title": "Netbook",
+      "code": "asdasd",
+      "price": 500,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013290128,
+      "description": "pc ryzen 5 8gb",
+      "title": "Netbook",
+      "code": "asdasd",
+      "price": 950000,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013295311,
+      "description": "pc ryzen 7 8gb",
+      "title": "Netbook",
+      "code": "asdasd",
+      "price": 950000,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    }
+  ]
+}
