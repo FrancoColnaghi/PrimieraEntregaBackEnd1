@@ -9,7 +9,7 @@ socket.on('realtime', (data)=>{
         div.classList.add(`${product.id}`,'cart')
 
         const id = document.createElement('p')
-        id.innerText = id.title
+        id.innerText = product.id
         const title = document.createElement('p')
         title.innerText = product.title
         const description = document.createElement('p')
@@ -52,13 +52,29 @@ const addProduct = ()=>{
     document.querySelector('#add-code').value = ""
     document.querySelector('#add-stock').value = ""
     document.querySelector('#add-category').value = ""
-    
-    
-    //console.log(info)
 }
 const updateProduct = ()=>{
-    console.log("Modificar Producto")
+    const id = document.querySelector('#update-id').value
+    const title = document.querySelector('#update-title').value
+    const description = document.querySelector('#update-description').value
+    const price = document.querySelector('#update-price').value
+    const code = document.querySelector('#update-code').value
+    const stock = document.querySelector('#update-stock').value
+    const category = document.querySelector('#update-category').value
+
+    const info = {title,description,price,code,stock,category}
+    socket.emit("modificar-producto", {info,id})
+
+    document.querySelector('#update-id').value = ""
+    document.querySelector('#update-title').value = ""
+    document.querySelector('#update-description').value = ""
+    document.querySelector('#update-price').value = ""
+    document.querySelector('#update-code').value = ""
+    document.querySelector('#update-stock').value = ""
+    document.querySelector('#update-category').value = ""
 }
 const deleteProduct = ()=>{
-    console.log("Eliminar Producto")
+    const id = document.querySelector('#delete-id').value
+    socket.emit("eliminar-producto", id)
+    document.querySelector('#delete-id').value = ""
 }

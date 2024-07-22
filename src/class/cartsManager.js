@@ -38,8 +38,7 @@ class CartsManager {
       console.log("Producto Encontrado");
       return this.cart;
     } else {
-      console.log("ID no encontrado");
-      return null;
+      return {"mensaje":"ID no encontrado"};
     }
   }
   async addProductToCart(cid, pid) {
@@ -58,11 +57,12 @@ class CartsManager {
         this.cartList = cartsList
         await fs.promises.writeFile(this.path,JSON.stringify({ carts: this.cartList })
         );
+        return {"mensaje":"Producto Agregado al carrito"};
       } else {
-        console.log("No Existe el ID Carrito");
+        return {"mensaje":"No Existe el ID Carrito"};
       }
     } else {
-      console.log("No Existe el ID producto");
+      return {"mensaje":"No Existe el ID Producto"};
     }
   }
 

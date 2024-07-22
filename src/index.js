@@ -40,4 +40,13 @@ socketServer.on('connection', async (socket)=>{
         await productManager.addProduct(producto)
         socket.emit('realtime', productsList)
     })
+    socket.on('modificar-producto', async(producto)=>{
+        await productManager.updateProduct(producto.info,producto.id)
+        console.log(producto.id)
+        socket.emit('realtime', productsList)
+    })
+    socket.on('eliminar-producto', async(id)=>{
+        await productManager.deleteProduct(id)
+        socket.emit('realtime', productsList)
+    })
 })

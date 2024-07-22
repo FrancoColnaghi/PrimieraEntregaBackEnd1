@@ -66,9 +66,9 @@ class ProductsManager {
             product.category ? prod.category = product.category :null
 
             await fs.promises.writeFile(this.path,JSON.stringify({ products: this.productsList }))
-            console.log("Producto Modificado")
+            return {"mensaje":"Producto Modificado"};
         } else {
-            console.log("ID no encontrado")
+            return {"mensaje":"ID no encontrado"};
         }
     }
     async deleteProduct(id){
@@ -77,9 +77,9 @@ class ProductsManager {
             const i = this.productsList.findIndex(obj => obj.id == id)
             this.productsList.splice(i,1)
             await fs.promises.writeFile(this.path,JSON.stringify({ products: this.productsList }))
-            console.log("Producto Eliminado")
+            return {"mensaje":"Producto Eliminado"};
         } else {
-            console.log("ID no encontrado")
+            return {"mensaje":"ID no encontrado"};
         }
     }
 
