@@ -1,1 +1,74 @@
-{"products":[{"id":1719854152313,"description":"Intel I7 16gb 240GB SSD ","title":"Notebook","code":"asdasd","price":800,"status":true,"stock":80,"category":"tecnologia"},{"id":1720013269172,"description":"Intel I3 8gb 120GB SSD","title":"Netbook","code":"asdasd","price":700,"status":true,"stock":80,"category":"tecnologia"},{"id":1720013285486,"description":"Ryzen 5 8gb 240GB SSD","title":"CPU","code":"asdasd","price":500,"status":true,"stock":80,"category":"tecnologia"},{"id":1721222595615,"description":"Mouse optico 650dpi ","title":"Mouse","code":"asdddasd","price":250,"status":true,"stock":80,"category":"tecno"},{"id":1721423729947,"description":"teclado RGB","title":"Teclado","code":"asdasd","price":"320","status":true,"stock":"120","category":"tecno"},{"id":1721666907265,"description":"mini parlantes","title":"Parlantes","code":"asdas","price":"140","status":true,"stock":"40","category":"tecno"},{"id":1721667834378,"description":"hp 500","title":"Impresora","code":"asdasd","price":"200","status":true,"stock":"30","category":"tecno"}]}
+{
+  "products": [
+    {
+      "id": 1719854152313,
+      "description": "Intel I7 16gb 240GB SSD ",
+      "title": "Notebook",
+      "code": "asdasd",
+      "price": 800,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013269172,
+      "description": "Intel I3 8gb 120GB SSD",
+      "title": "Netbook",
+      "code": "asdasd",
+      "price": 700,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1720013285486,
+      "description": "Ryzen 5 8gb 240GB SSD",
+      "title": "CPU",
+      "code": "asdasd",
+      "price": 500,
+      "status": true,
+      "stock": 80,
+      "category": "tecnologia"
+    },
+    {
+      "id": 1721222595615,
+      "description": "Mouse optico 650dpi ",
+      "title": "Mouse",
+      "code": "asdddasd",
+      "price": 250,
+      "status": true,
+      "stock": 80,
+      "category": "tecno"
+    },
+    {
+      "id": 1721423729947,
+      "description": "teclado RGB",
+      "title": "Teclado",
+      "code": "asdasd",
+      "price": "320",
+      "status": true,
+      "stock": "120",
+      "category": "tecno"
+    },
+    {
+      "id": 1721666907265,
+      "description": "mini parlantes",
+      "title": "Parlantes",
+      "code": "asdas",
+      "price": "140",
+      "status": true,
+      "stock": "40",
+      "category": "tecno"
+    },
+    {
+      "id": 1721667834378,
+      "description": "hp 500",
+      "title": "Impresora",
+      "code": "asdasd",
+      "price": "200",
+      "status": true,
+      "stock": "30",
+      "category": "tecno"
+    }
+  ]
+}
