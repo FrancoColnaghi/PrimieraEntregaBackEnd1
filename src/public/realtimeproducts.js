@@ -6,10 +6,10 @@ socket.on('realtime', (data)=>{
     contenedorProductosRTP.innerHTML = ''
     data.forEach(product => {
         const div = document.createElement('div')
-        div.classList.add(`${product.id}`,'cart')
+        div.classList.add('cart')
 
         const id = document.createElement('p')
-        id.innerText = product.id
+        id.innerText = product._id
         const title = document.createElement('p')
         title.innerText = product.title
         const description = document.createElement('p')
@@ -22,6 +22,9 @@ socket.on('realtime', (data)=>{
         stock.innerText = product.stock
         const category = document.createElement('p')
         category.innerText = product.category
+        const btnDelete = document.createElement('button')
+        btnDelete.innerText = "Eliminar"
+        btnDelete.onclick = ()=>{socket.emit("eliminar-producto", product._id)}
 
         div.appendChild(id)
         div.appendChild(title)
@@ -30,6 +33,8 @@ socket.on('realtime', (data)=>{
         div.appendChild(code)
         div.appendChild(stock)
         div.appendChild(category)
+        div.appendChild(btnDelete)
+
         contenedorProductosRTP.appendChild(div)
     });
 })
@@ -72,9 +77,4 @@ const updateProduct = ()=>{
     document.querySelector('#update-code').value = ""
     document.querySelector('#update-stock').value = ""
     document.querySelector('#update-category').value = ""
-}
-const deleteProduct = ()=>{
-    const id = document.querySelector('#delete-id').value
-    socket.emit("eliminar-producto", id)
-    document.querySelector('#delete-id').value = ""
 }

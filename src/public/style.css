@@ -22,7 +22,7 @@ h1{
 .realtimeproducts > h2{
     text-align: center;
 }
-.products-container-rtp{
+.products-container-rtp, .products-container{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;

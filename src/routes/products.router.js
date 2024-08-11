@@ -1,46 +1,61 @@
 import { Router } from "express";
-import ProductsManager from '../class/productManager.js'
+import { ProductModel } from "../models/product.model.js";
 import { __dirname } from '../utils.js'
 import { socketServer } from "../index.js";
 
 const router = Router()
-const productManager = new ProductsManager(__dirname + '/bbdd/products.json');
 
 router.get('/', async (req,res)=>{
-    const data = await productManager.getAllProducts()
-    res.json(data)
+    const { limit = 10, page = 1, sort = '', ...query } = req.query;
+    const limitN = parseInt(limit);
+    const pageN = parseInt(page);
+
+    const sortManager = {
+        'asc': 1,
+        'desc': -1
+      }
+    const productos = await ProductModel.paginate(
+        { ...query },
+        { 
+          limit: limitN,
+          page: pageN,
+          ...(sort && { sort: { price: sortManager[sort]} }),
+          customLabels: { docs: 'Productos' }
+        })
+
+    res.status(200).json({mensaje:'Productos Encontrados', payload: productos})
 })
 
 router.get('/:pid', async (req,res)=>{
     const id = req.params.pid
-    const data = await productManager.getProduct(id)
-    res.json(data)
+    const producto = await ProductModel.findById(id)
+    res.status(200).json({mensaje:'Producto Encontrado', payload: producto})
 })
 
 router.post('/', async (req,res)=>{
     const newProduct = req.body
-    await productManager.addProduct(newProduct)
-    const productsList = await productManager.getAllProducts()
+    await ProductModel.create(newProduct)
+    const productsList = await ProductModel.find()
     socketServer.emit('realtime', productsList)
-    res.status(201).json(newProduct)
+    res.status(201).json({mensaje:'Producto Agregado', payload: {newProduct}})
 
 })
 
 router.put('/:pid', async (req,res)=>{
     const id = req.params.pid
     const newProduct = req.body
-    await productManager.updateProduct(newProduct,id)
-    const productsList = await productManager.getAllProducts()
+    const updateProduct = await ProductModel.findByIdAndUpdate(id, {...newProduct}, {new:true})
+    const productsList = await ProductModel.find()
     socketServer.emit('realtime', productsList)
-    res.status(201).json(newProduct)
+    res.status(200).json({mensaje:'Producto Modificado', payload: {updateProduct}})
 })
 
 router.delete('/:pid', async (req,res)=>{
     const id = req.params.pid
-    await productManager.deleteProduct(id)
-    const productsList = await productManager.getAllProducts()
+    await ProductModel.findByIdAndDelete(id)
+    const productsList = await ProductModel.find()
     socketServer.emit('realtime', productsList)
-    res.status(201).json({"mensaje": `Producto eliminado. id: ${id}'`})
+    res.status(200).json({"mensaje": `Producto eliminado`, payload: {id}})
 })
 
 export default router

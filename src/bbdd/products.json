@@ -69,6 +69,16 @@
       "status": true,
       "stock": "30",
       "category": "tecno"
+    },
+    {
+      "id": 1721934486478,
+      "description": "lg 32",
+      "title": "monitor",
+      "code": "asddqw",
+      "price": "450",
+      "status": true,
+      "stock": "30",
+      "category": "tecno"
     }
   ]
 }
